@@ -1,8 +1,7 @@
 class CriterionChannel
 	require "httparty"
 	require "nokogiri"
-	require "active_support"
-	require "active_support/core_ext/object"
+	require "active_support/all"
 	require "criterion_channel/film"
 
 	attr_reader :films, :data_pull_time
