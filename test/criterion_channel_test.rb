@@ -1,6 +1,6 @@
 require 'criterion_channel'
-require "active_support"
-require "active_support/core_ext/object"
+require "active_support/all"
+ 
 
 test_instance = CriterionChannel.new
 
