@@ -1,10 +1,13 @@
 class CriterionChannel
 	require "httparty"
 	require "nokogiri"
+	require "mechanize"
+	require "cgi"
 	require "active_support/all"
 	require "criterion_channel/film"
+	require "criterion_channel/searcher"
 
-	attr_reader :films, :data_pull_time
+	attr_reader :films, :data_pull_time, :searcher
 
 	CRITERION_CHANNEL_DATA_URL = "https://films.criterionchannel.com/channel/films"
 	TABLE_DATA_TYPES = { country: "criterion-channel__td criterion-channel__td--country",
@@ -16,8 +19,8 @@ class CriterionChannel
 	def initialize
 		@films = parse_films_from_data
 		@data_pull_time = Time.now
+		@searcher = CriterionChannel::Searcher.new
 	end
-
 
 	private
 

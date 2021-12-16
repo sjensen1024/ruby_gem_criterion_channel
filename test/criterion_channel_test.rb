@@ -44,3 +44,12 @@ countries = test_instance.films.map{ |i| i.country }.uniq.sort{ |x,y| x <=> y }
 countries.each do |country|
 	puts country
 end
+
+puts "\nSEARCH WITH DEFAULT NUMBER OF RESULTS: "
+puts test_instance.searcher.search("the tin drum")
+
+puts "\nRETURN ONLY FIRST SEARCH RESULT: "
+puts test_instance.searcher.search_first_result("the tin drum")
+
+puts "\nSEARCH WITH SPECIFIC NUMBER OF RESULTS: "
+puts test_instance.searcher.search("the tin drum", 15)
