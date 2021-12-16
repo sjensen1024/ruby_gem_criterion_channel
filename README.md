@@ -9,6 +9,7 @@ The criterion_channel gem pulls information from the Criterion Channel website's
 The gem pulls data from the Criterion Channel's current film list. Once it gets this information, it sets up an instance with two parts:
 * **films**: an array of Film objects based on data pulled from the site
 * **data_pull_time**: the time at which the pull occurred
+* **searcher**: a Mechanize object you can use to search for titles on the Criterion Channel site.
 
 ### What are the attributes of a Film?
 * **country**: the country of origin of the film
@@ -16,3 +17,7 @@ The gem pulls data from the Criterion Channel's current film list. Once it gets 
 * **img**: the link to the poster of the film on the Criterion Channel website
 * **title**: the title of the film
 * **year**: the year of the film's release
+
+### How can I use the searcher?
+* Off of the searcher object, call `search('title to search')` to search for a title on the Criterion Channel site. The default is 5 search results, but you can pass in an optional parameter to specify a number of search results you want. If anything is found, it will be returned as part of an array of titles.
+* To just get the first search result, call `search_first_result('title to search')` off the searcher object.
